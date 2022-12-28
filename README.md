@@ -9,3 +9,6 @@ https://www.youtube.com/shorts/5A09WNhT-10
 ToF AR　の　unitypackage は gitignore されています。<br>
 公式サイトから自分でダウンロードし、インポートしてください。ダウンロードは以下から。<br>
 https://developer.sony.com/ja/develop/tof-ar/download
+
+アイディアの元ネタ<br>
+https://twitter.com/youtoy/status/1558731638783492099
