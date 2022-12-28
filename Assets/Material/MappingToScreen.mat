@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Recorded
+  m_Name: MappingToScreen
   m_Shader: {fileID: 4800000, guid: 600119982731b42919d80a4e4bdcb576, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []

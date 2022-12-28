@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657815, g: 0.49641192, b: 0.57481617, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -879,7 +879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2079598f5da4d928dc66548290efa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffer: {fileID: 0}
+  MatSrc: {fileID: 0}
   material: {fileID: 0}
 --- !u!114 &1115580890
 MonoBehaviour:
@@ -997,7 +997,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e265f62d900e74e07a2d7ff50cce0625, type: 2}
+  - {fileID: 2100000, guid: 4aa772cc54355435083364e149a63135, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1166,8 +1166,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac2079598f5da4d928dc66548290efa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffer: {fileID: 0}
-  material: {fileID: 2100000, guid: e265f62d900e74e07a2d7ff50cce0625, type: 2}
+  MatSrc: {fileID: 2100000, guid: 00c07844ffee1084c8b7e2fc01bc14df, type: 2}
+  material: {fileID: 2100000, guid: 4aa772cc54355435083364e149a63135, type: 2}
 --- !u!1 &1967653324
 GameObject:
   m_ObjectHideFlags: 0

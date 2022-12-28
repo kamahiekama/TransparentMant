@@ -68,7 +68,7 @@ public class Mant : MonoBehaviour
             mesh.SetIndices(indices, MeshTopology.Triangles, 0);
             mesh.RecalculateBounds();
             meshRenderer.enabled = true;
-            bothDetected--;
+            //bothDetected--;
         }
         else
         {

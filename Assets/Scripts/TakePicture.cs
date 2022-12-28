@@ -11,13 +11,13 @@ public class TakePicture : MonoBehaviour
     /// </summary>
     private bool trigger = false;
 
-    private Texture2D tex;
-
     /// <summary>
-    /// 撮影した画像データ
+    /// Y, UV テクスチャをコピーする元
     /// </summary>
-    //public RenderTexture buffer;
-    public Texture2D buffer;
+    public Material MatSrc;
+
+    private Texture2D YTex;
+    private Texture2D UVTex;
 
     /// <summary>
     /// 撮影した画像データを反映させるマテリアル
@@ -29,10 +29,17 @@ public class TakePicture : MonoBehaviour
     {
         // コールバックメソッドの登録
         TofArColorManager.OnFrameArrived += FrameArrived;
+
+        ResolutionProperty config = TofArColorManager.Instance.GetProperty<ResolutionProperty>();
+
+        //texWidth = config.width;
+        //texHeight = config.height;
     }
 
     public void FrameArrived(object sender)
     {
+        // YUV420 設定だと mgr.ColorTexture が null になってしまうため、ここからは映像取得できない。
+        /*
         TofArColorManager mgr = (TofArColorManager)sender;
         if (mgr.ColorTexture != null)
         {
@@ -42,11 +49,14 @@ public class TakePicture : MonoBehaviour
         {
             Debug.Log("null");
         }
+        //*/
     }
 
     // Update is called once per frame
     void Update()
     {
+        // ColorTexture からコピーするやり方
+        /*
         if (trigger && tex != null)
         {
             if (buffer == null)
@@ -58,6 +68,29 @@ public class TakePicture : MonoBehaviour
             buffer.Apply();
 
             material.mainTexture = buffer;
+
+            trigger = false;
+        }
+        //*/
+        // Y, UV Texture をコピーする
+        if (trigger)
+        {
+            Texture2D ytex = (Texture2D)MatSrc.GetTexture("_YTex");
+            Texture2D uvtex = (Texture2D)MatSrc.GetTexture("_UVTex");
+
+            if (YTex == null)
+            {
+                YTex = new Texture2D(ytex.width, ytex.height, ytex.format, false);
+                UVTex = new Texture2D(uvtex.width, uvtex.height, uvtex.format, false);
+            }
+
+            YTex.LoadRawTextureData(ytex.GetRawTextureData());
+            YTex.Apply();
+            UVTex.LoadRawTextureData(uvtex.GetRawTextureData());
+            UVTex.Apply();
+
+            material.SetTexture("_YTex", YTex);
+            material.SetTexture("_UVTex", UVTex);
 
             trigger = false;
         }
